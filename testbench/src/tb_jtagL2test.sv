@@ -6,9 +6,6 @@ task testtask(
     ref logic s_tms,
     input logic s_tdo
 );
-
-    parameter   WRITE_ADDR = 32'h0000_0000;
-    
     logic [255:0][31:0]   jtag_data;
     logic [8:0] jtag_conf_reg, jtag_conf_rego; //22bits but actually only the last 9bits are used
 
@@ -61,6 +58,8 @@ module tb_jtagL2test;
 
     parameter   REF_CLK_PERIOD = 30517ns;
 
+    parameter   WRITE_ADDR = 32'h0000_0000;
+
     wire    w_clk;
     wire    w_rst_n;
 
@@ -112,7 +111,7 @@ module tb_jtagL2test;
 
     initial begin
 
-        testtask(s_rst_n, s_trstn, s_tck, s_tdi, s_tms, s_tdo);
+        testtask(s_rst_n, s_trstn, s_tck, s_tdi, s_tms, s_td);
         
     end
 
