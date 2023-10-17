@@ -7,7 +7,7 @@ task testtask(
     const ref logic s_tdo
 );
 
-    parameter   WRITE_ADDR = 32'h0000_0000;
+    parameter   WRITE_ADDR = 32'h0000_0000;//sss
 
     logic [255:0][31:0]   jtag_data;
     logic [8:0] jtag_conf_reg, jtag_conf_rego; //22bits but actually only the last 9bits are used
