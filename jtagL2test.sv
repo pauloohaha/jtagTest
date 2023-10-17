@@ -12,7 +12,7 @@ module jtagL2test(
     input logic                           jtag_trst_ni,
     input logic                           jtag_tms_i,
     input logic                           jtag_tdi_i,
-    inout logic                           jtag_tdo_o
+    inout wire                            jtag_tdo_o
 
 );
     // tap to lint wrap
@@ -23,6 +23,9 @@ module jtagL2test(
     logic                  s_jtag_axireg_tdi;
     logic                  s_jtag_axireg_tdo;
 
+    logic                   inter_tdo_o;
+    assign jtag_tdo_o = inter_tdo_o;
+
     XBAR_TCDM_BUS  s_mem_l2_bus[0:0]();
 
     jtag_tap_top  #(
@@ -32,7 +35,7 @@ module jtagL2test(
         .trst_ni                  ( jtag_trst_ni       ),
         .tms_i                    ( jtag_tms_i         ),
         .td_i                     ( jtag_tdi_i         ),
-        .td_o                     ( jtag_tdo_o         ),
+        .td_o                     ( inter_tdo_o         ),
 
         .test_clk_i               ( 1'b0               ),
         .test_rstn_i              ( rst_n         ),
