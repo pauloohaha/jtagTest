@@ -46,7 +46,7 @@ module tb_jtagL2test;
        tmp_tdo = w_jtag_tdo_o;
     end
 
-    assign  s_tdo = 1'b0;
+    //assign  s_tdo = 1'b0;
 
     assign  w_jtag_tck_i    = s_tck;
     assign  w_jtag_trst_ni  = s_trstn;
