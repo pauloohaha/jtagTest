@@ -4,7 +4,7 @@ task testtask(
     ref logic s_tck,
     ref logic s_tdi,
     ref logic s_tms,
-    ref logic s_tdo
+    input logic s_tdo
 );
 
     parameter   WRITE_ADDR = 32'h0000_0000;
